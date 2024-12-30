@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+.gameCont{
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg);
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.gameCont .game{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.gameCont .gameHeader{
+  margin-bottom: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.gameCont .game .gameHeader h1{
+  font-size: 50px;
+}
+
+.gameCont .game .gameHeader p{
+  cursor: pointer;
+}
+
+/*Game Body*/
+.gameCont .gameBody{
+  background-color: var(--gameBg);
+  padding: 12px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.gameCont .gameBody .row{
   display: flex;
-  flex-direction: column;
+  margin: auto;
+}
+
+.gameCont .gameBody .row span{
+  flex:1;
+  background-color: var(--gameTile);
+  height: 110px;
+  width: 100px;
+  border: 1px solid var(--black);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  cursor: pointer;
+  font-size: 84px;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+.gameCont .gameBody .row span:first-child{
+  border-left: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.gameCont .gameBody .row span:last-child{
+  border-right: none;
+}
+
+.gameCont .gameBody .row:first-child span{
+  border-top: none;
+}
+
+.gameCont .gameBody .row:last-child span{
+  border-bottom: none;
+}
+
+.gameCont .gameBody .over{
+  min-height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gameCont .gameBody .over h3{
+  color: var(--white);
+}
+
+.gameCont .gameBody .over button{
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--bg);
+  cursor: pointer;
+}
+
+.o, .O{
+  color: var(--knot);
+}
+
+.x, .X{
+  color: var(--cross);
+}
+
+.x::after, .X::after{
+  content: 'X';
+}
+
+.o::after, .O::after{
+  content: 'O';
+}
+
+/*Modal*/
+
+.modal{
+  z-index: 50;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  max-width: 550px;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg);
+  padding: 10px;
+  border-radius: 10px;
+  animation: fade-in .3s ease-in-out;
+}
+
+.modal .cross{
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  color: var(--black);
+  cursor: pointer;
+  color: var(--gray);
+  font-size: 28px;
+  transition: .2s;
+}
+
+.modal .cross:hover{
+  color: var(--black);
+}
+
+.modal h1{
+  margin-bottom: 15px;
+}
+
+.modal ul{
+  margin-left: 24px;
+}
+
+.modal ul li{
+  margin-bottom: 6px;
+}
+
+.modal ul li span{
+  vertical-align: middle;
+  font-weight: 600;  
+}
+
+.modal ul li span:first-child{
+  color: var(--cross);
+}
+
+.modal ul li span:last-child{
+  color: var(--knot);
+}
+
+/*Dim*/
+
+.dim{
+  position: fixed;
+  z-index: 49;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--dim);
+  animation: fade-in .2s ease-in-out;
 }
