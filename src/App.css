@@ -14,7 +14,7 @@
 }
 
 .gameCont .gameHeader{
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .gameCont .game .gameHeader h1{
@@ -23,6 +23,16 @@
 
 .gameCont .game .gameHeader p{
   cursor: pointer;
+  color: var(--primary);
+}
+
+.gameCont .game .gameHeader p:last-child{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.gameCont .game .gameHeader p:last-child span{
+  font-weight: bold;
 }
 
 /*Game Body*/
@@ -81,12 +91,13 @@
   color: var(--white);
 }
 
-.gameCont .gameBody .over button{
-  padding: 6px;
-  border-radius: 5px;
-  border: none;
-  background-color: var(--bg);
-  cursor: pointer;
+.gameCont .gameBody .over span{
+  margin-right: 4px;
+}
+
+.gameCont .gameBody .line{
+  display: flex;
+  gap: 10px;
 }
 
 .o, .O{

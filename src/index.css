@@ -11,7 +11,7 @@
 
 :root{
   --bg: #FAF8EF;
-  --primary: #776E65;
+  --primary: #645d56;
   --black: #1A1A1A;
   --dim: rgba(0,0,0, 0.3);
   --cross: #2512A0;
@@ -31,15 +31,27 @@ h1, h2, h3, h4, h5, h6{
   color: var(--gray);
 }
 
-.text-cross{
+.text-x{
   color: var(--cross);
 }
 
-.text-knot{
+.text-o{
   color: var(--knot);
+}
+
+button{
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--bg);
+  cursor: pointer;
 }
 
 @keyframes fade-in{
   from{opacity: 0;}
   to{opacity: 1;}
+}
+
+.animateFadeIn{
+  animation: fade-in 0.5s ease-in-out;
 }
