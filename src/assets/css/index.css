@@ -52,6 +52,12 @@ button{
   to{opacity: 1;}
 }
 
+@keyframes bounce-text{
+  0%{font-size: 80px}
+  50%{font-size: 90px}
+  100%{font-size: 80px}
+}
+
 .animateFadeIn{
   animation: fade-in 0.5s ease-in-out;
 }

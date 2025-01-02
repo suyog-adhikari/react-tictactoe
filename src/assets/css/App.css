@@ -10,7 +10,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
 }
 
 .gameCont .gameHeader{
@@ -26,12 +25,12 @@
   color: var(--primary);
 }
 
-.gameCont .game .gameHeader p:last-child{
+.gameCont .game .gameHeader p:nth-child(3){
   text-align: center;
   margin-top: 20px;
 }
 
-.gameCont .game .gameHeader p:last-child span{
+.gameCont .game .gameHeader p:nth-child(3) span{
   font-weight: bold;
 }
 
@@ -41,6 +40,7 @@
   padding: 12px;
   width: 100%;
   border-radius: 10px;
+  box-sizing: border-box;
 }
 
 .gameCont .gameBody .row{
@@ -58,7 +58,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 84px;
+  font-size: 80px;
   font-weight: 600;
 }
 
@@ -102,10 +102,12 @@
 
 .o, .O{
   color: var(--knot);
+  animation: bounce-text 0.3s ease-in-out;
 }
 
 .x, .X{
   color: var(--cross);
+  animation: bounce-text 0.3s ease-in-out;
 }
 
 .x::after, .X::after{
@@ -123,7 +125,6 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  max-width: 550px;
   transform: translate(-50%, -50%);
   background-color: var(--bg);
   padding: 10px;

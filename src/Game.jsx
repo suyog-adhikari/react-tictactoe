@@ -51,7 +51,7 @@ const Game = () =>{
       const newGame = setMarker(game, cpuMove, turn);
       setTimeout(()=>{
         setGame([...newGame]);
-      }, 300);
+      }, 500);
     }
   }, [turn]);
 
@@ -118,6 +118,7 @@ const Game = () =>{
                 </div>
               </div>
             )}
+
             {!gameMode && (
               <div className="over">
                 <h3>Select Player Mode</h3>

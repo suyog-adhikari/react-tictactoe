@@ -1,5 +1,6 @@
 import Game from './Game';
-import './App.css';
+import 'assets/css/App.css';
+import 'assets/css/App.responsive.css';
 
 function App() {
   return (
