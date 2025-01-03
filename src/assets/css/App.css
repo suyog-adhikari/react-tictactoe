@@ -184,3 +184,7 @@
   background-color: var(--dim);
   animation: fade-in .2s ease-in-out;
 }
+
+.win{
+  animation: winner 0.25s ease-in-out 2;
+}

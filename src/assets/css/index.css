@@ -31,20 +31,28 @@ h1, h2, h3, h4, h5, h6{
   color: var(--gray);
 }
 
-.text-x{
+.text-x, .text-X{
   color: var(--cross);
 }
 
-.text-o{
+.text-o, .text-O{
   color: var(--knot);
 }
-
+ 
 button{
   padding: 6px;
   border-radius: 5px;
   border: none;
   background-color: var(--bg);
   cursor: pointer;
+}
+
+.winLine{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 @keyframes fade-in{
@@ -58,6 +66,17 @@ button{
   100%{font-size: 80px}
 }
 
-.animateFadeIn{
-  animation: fade-in 0.5s ease-in-out;
+@keyframes winAnimation {
+  from {
+    stroke-dashoffset: 380;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.winAnimation{
+  animation: winAnimation 1s ease-in-out forwards;
+  stroke-dasharray: 380; /* Length of the line */
+  stroke-dashoffset: 380; /* Initially hide the stroke */
 }
