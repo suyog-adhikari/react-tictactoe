@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { HowToPlayModal, DisplayTurn, WinLine } from "components";
 import { gameInit, setMarker, toggleTurn, checkGameOver, checkWin, makeDecision  } from "assets/js/controller";
 
@@ -6,12 +6,14 @@ const EMPTY = -1;
 
 const Game = () =>{
   const [howToPlay, setHowToPlay] = useState(false);
+  const [animateWin, setAnimateWin] = useState(null);
+  const [init, setInit] = useState(false);
+
   const [game, setGame] = useState([]);
   const [turn, setTurn] = useState('x');
   const [win, setWin] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [gameMode, setGameMode] = useState(null);
-  const [animateWin, setAnimateWin] = useState(null);
 
   const reInit = (changeMode = false) =>{
     setHowToPlay(false);
@@ -30,6 +32,16 @@ const Game = () =>{
   }
 
   useEffect(()=>{
+    setGame(gameInit());
+    setInit(true);
+  }, []);
+
+  useEffect(()=>{
+    if(!gameMode || !gameMode.mode)
+      return;
+    if(gameMode.mode === 1 && !gameMode.user)
+      return;
+
     const currentGameOver =  checkGameOver(game);
     const currentWin = checkWin(game);
 
@@ -50,6 +62,9 @@ const Game = () =>{
     if(gameMode.mode === 2)
       return;
 
+    if(gameMode.user === turn)
+      return;
+
     const cpuMove = makeDecision(game, turn, gameMode);
     if(cpuMove){
       const newGame = setMarker(game, cpuMove, turn);
@@ -58,26 +73,34 @@ const Game = () =>{
       }, 500);
     }
   }, [turn]);
-
+  
   useEffect(()=>{
-    if(gameMode?.mode === 1 && gameMode.user !== turn){
-      const cpuMove = makeDecision(game, turn, gameMode);
-      if(cpuMove){
-        const newGame = setMarker(game, cpuMove, turn);
-        setTimeout(()=>{
-          setGame([...newGame]);
-        }, 500);
-      }
+    if(!init) return;
+
+    if(!gameMode || !gameMode.mode || !gameMode.user)
+      return;
+
+    if(gameMode?.mode === 2)
+      return;
+
+    setInit(false);
+
+    const cpuMove = makeDecision(game, turn, gameMode);
+    if(cpuMove){
+      const newGame = setMarker(game, cpuMove, turn);
+      setTimeout(()=>{
+        setGame([...newGame]);
+      }, 500);
     }
   }, [gameMode]);
-  
+
   const renderRow = (row, rowIndex) =>{
     return(
-    <div className="row" key={rowIndex}>
-      {row.map((cell, colIndex)=>{
-        return <span key={colIndex} className={cell!==EMPTY ? cell : ''} onClick={()=>handleClick(rowIndex, colIndex)} ></span>
-      })}
-    </div>
+      <div className="row" key={rowIndex}>
+        {row.map((cell, colIndex)=>{
+          return <span key={colIndex} className={cell!==EMPTY ? cell : ''} onClick={()=>handleClick(rowIndex, colIndex)} ></span>
+        })}
+      </div>
     );
   }
 
@@ -95,10 +118,6 @@ const Game = () =>{
 
     return true;
   }
-
-  useEffect(()=>{
-    setGame(gameInit());
-  }, []);
 
   return(
     <>
