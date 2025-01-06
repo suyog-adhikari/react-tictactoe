@@ -1,7 +1,9 @@
 const DisplayTurn = ({turn, gameMode}) => {
+  const isUserTurn = turn === gameMode.user;
+
   if(gameMode.mode === 1){
     return(
-      <p><span>{turn===gameMode.user?"Your":"CPU's"}</span> Turn</p>
+      <p><span>{isUserTurn?"Your":"CPU's"}</span> Turn</p>
     )
   }
   else if(gameMode.mode === 2){
@@ -9,6 +11,8 @@ const DisplayTurn = ({turn, gameMode}) => {
       <p><span className={`text-${turn}`}>{turn.toUpperCase()}</span>'s Turn</p>
     )
   }
+
+  return null;
 }
 
 export default DisplayTurn;
