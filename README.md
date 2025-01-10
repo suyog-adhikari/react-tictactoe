@@ -1,5 +1,5 @@
 # React TicTacToe
-Simple, interacrive Tic-Tac-Toe game built using React, where players can choose between two modes **1P Mode** (Players vs CPU) or **2P Mode** (Player vs Player).
+Simple, interactive Tic-Tac-Toe game built using React, where players can choose between two modes: **1P Mode** (Players vs CPU) or **2P Mode** (Player vs Player).
 
 ## Features
 * **1P Mode (Player vs CPU)**: Play against the computer that makes moves
