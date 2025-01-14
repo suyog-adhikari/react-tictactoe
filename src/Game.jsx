@@ -1,5 +1,5 @@
 import { useEffect, useState, useReducer } from "react";
-import { HowToPlayModal, DisplayTurn, WinLine } from "components";
+import { HowToPlayModal, DisplayTurn, WinLine, DisplayWin } from "components";
 import { gameInit, setMarker, toggleTurn, checkGameOver, checkWin, makeDecision  } from "assets/js/controller";
 
 const EMPTY = -1;
@@ -166,9 +166,7 @@ const Game = () =>{
               <div className="over animateFadeIn">
                 {gameStat.win ? 
                   <>
-                    <h3>
-                      <span className={`text-${gameStat.win.winner}`}>{(gameStat.win.winner).toUpperCase()}</span> Wins
-                    </h3>
+                    <DisplayWin gameStat={{winner: gameStat.win.winner, user: gameStat.user, gameMode: gameStat.gameMode}}/>
                   </>:<h3>It's a tie</h3>
                 }
 
