@@ -8,7 +8,7 @@ const DisplayWin = ({gameStat})=>{
   }
   return(
     <>
-      {gameStat.winner==gameStat.user?<h3 style={{color:'green'}}><span>You</span> Win</h3>: <h3 style={{color:'red'}}><span>CPU</span> Wins</h3>}  
+      {gameStat.winner==gameStat.user?<h3><span>You</span> Win</h3>: <h3><span>CPU</span> Wins</h3>}  
     </>
   )
 }
