@@ -50,4 +50,5 @@ The CPU uses basic algorithm to play Tic-Tac-Toe. It follows the following steps
 3. If there are no immediate threats or winning moves, it selects a random available spot
 
 ## Snapshot
-![image](https://github.com/user-attachments/assets/236d7763-4b83-4284-bee8-a0b3e5e78be0)
+![image](https://github.com/user-attachments/assets/7449e572-7368-472d-8ce3-d281f49d7721)
+
